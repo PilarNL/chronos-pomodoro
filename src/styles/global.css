@@ -25,9 +25,9 @@ body {
   background: var(--gray-900);
   background: linear-gradient(
     170deg,
-    rgba(10, 15, 26, 1) 0%,
-    rgba(39, 47, 67, 1) 50%,
-    rgba(69, 79, 106, 1) 100%
+    var(--gray-900) 0%,
+    var(--gray-700) 50%,
+    var(--gray-500) 100%
   );
   color: var(--text-default);
 }
