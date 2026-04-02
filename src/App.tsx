@@ -3,6 +3,7 @@ import './styles/global.css';
 import { Container } from './components/Container';
 import { Logo } from './components/Logo';
 import { Menu } from './components/Menu';
+import { CountDown } from './components/CountDown';
 
 export function App() {
   return (
@@ -13,7 +14,9 @@ export function App() {
       <Container>
         <Menu />
       </Container>
-      <Container>form</Container>
+      <Container>
+        <CountDown />
+      </Container>
       <Container>footer</Container>
     </>
   );
