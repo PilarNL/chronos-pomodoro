@@ -3,14 +3,14 @@ import { Cycles } from '../Cycles/Index';
 import { DefaultButton } from '../DefaultButton';
 import { DefaultInput } from '../DefaultInput';
 import { useRef } from 'react';
-
-import styles from './styles.module.css';
 import type { TaskModel } from '../../models/TaskModel';
 import { useTaskContent } from '../../contexts/TaskContext/useTaskContext';
 import { getNextCycle } from '../../utils/getNextCycle';
 import { getNextCycleType } from '../../utils/getNextCycleType';
 import { TaskActionTypes } from '../../contexts/TaskContext/taskActions';
 import { Tips } from '../tips';
+
+import styles from './styles.module.css';
 
 export function MainForm() {
   const { state, dispatch } = useTaskContent();
