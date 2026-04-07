@@ -5,6 +5,7 @@ import { taskReducer } from './taskReducer';
 import { TimerWorkerManager } from '../../workers/timerWorkerManager';
 import { TaskActionTypes } from './taskActions';
 import { loadAudio } from '../../utils/loadAudio';
+import { showMessage } from '../../adapters/showMessage';
 
 type TaskContextProviderProps = {
   children: React.ReactNode;
@@ -28,14 +29,13 @@ export function TaskContextProvider({ children }: TaskContextProviderProps) {
 
     worker.onmessage(e => {
       const countDownSeconds = e.data;
-      console.log(countDownSeconds);
 
       if (countDownSeconds <= 0) {
         if (playAudioRef.current) {
           playAudioRef.current();
         }
 
-        console.log('Worker Completed');
+        showMessage.success('Tarefa Concluída!');
         dispatch({
           type: TaskActionTypes.COMPLETE_TASK,
         });
