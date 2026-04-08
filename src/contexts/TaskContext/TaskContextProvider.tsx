@@ -21,6 +21,8 @@ export function TaskContextProvider({ children }: TaskContextProviderProps) {
       return;
     }
 
+    document.title = `${state.formattedSecondsRemaining} - Chronos Pomodoro`;
+
     if (activeTask && playAudioRef.current === null) {
       playAudioRef.current = loadAudio();
     }
@@ -57,7 +59,7 @@ export function TaskContextProvider({ children }: TaskContextProviderProps) {
     return () => {
       worker.terminate();
     };
-  }, [activeTask]);
+  }, [activeTask, state.formattedSecondsRemaining]);
 
   return (
     <TaskContext.Provider value={{ state, dispatch }}>

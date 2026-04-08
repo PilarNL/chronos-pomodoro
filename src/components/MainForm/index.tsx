@@ -16,6 +16,7 @@ import styles from './styles.module.css';
 export function MainForm() {
   const { state, dispatch } = useTaskContent();
   const TaskNameInput = useRef<HTMLInputElement>(null);
+  const lastTaskName = state.tasks[state.tasks.length - 1]?.name || '';
 
   const nextCycle = getNextCycle(state.currentCycle);
   const nextCycleType = getNextCycleType(nextCycle);
@@ -63,6 +64,7 @@ export function MainForm() {
           placeholder='O que você vai fazer?'
           ref={TaskNameInput}
           disabled={!!state.activeTask}
+          defaultValue={lastTaskName}
         />
       </div>
       <div className={styles.formRow}>
