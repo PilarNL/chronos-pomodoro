@@ -6,17 +6,33 @@ import { TimerWorkerManager } from '../../workers/timerWorkerManager';
 import { TaskActionTypes } from './taskActions';
 import { loadAudio } from '../../utils/loadAudio';
 import { showMessage } from '../../adapters/showMessage';
+import type { TaskStateModel } from '../../models/TaskStateModel';
 
 type TaskContextProviderProps = {
   children: React.ReactNode;
 };
 
 export function TaskContextProvider({ children }: TaskContextProviderProps) {
-  const [state, dispatch] = useReducer(taskReducer, initialTaskState);
+  const [state, dispatch] = useReducer(taskReducer, initialTaskState, () => {
+    const storageState = localStorage.getItem('state');
+
+    if (storageState === null) return initialTaskState;
+
+    const parsedStorageState = JSON.parse(storageState) as TaskStateModel;
+
+    return {
+      ...parsedStorageState,
+      activeTask: null,
+      secondsRemaining: 0,
+      formattedSecondsRemaining: '00:00',
+    };
+  });
   const { activeTask } = state;
   const playAudioRef = useRef<ReturnType<typeof loadAudio> | null>(null);
 
   useEffect(() => {
+    localStorage.setItem('state', JSON.stringify(state));
+
     if (!activeTask) {
       return;
     }
@@ -59,7 +75,7 @@ export function TaskContextProvider({ children }: TaskContextProviderProps) {
     return () => {
       worker.terminate();
     };
-  }, [activeTask, state.formattedSecondsRemaining]);
+  }, [activeTask, state.formattedSecondsRemaining, state]);
 
   return (
     <TaskContext.Provider value={{ state, dispatch }}>
