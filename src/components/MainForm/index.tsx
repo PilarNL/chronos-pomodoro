@@ -8,7 +8,7 @@ import { useTaskContent } from '../../contexts/TaskContext/useTaskContext';
 import { getNextCycle } from '../../utils/getNextCycle';
 import { getNextCycleType } from '../../utils/getNextCycleType';
 import { TaskActionTypes } from '../../contexts/TaskContext/taskActions';
-import { Tips } from '../tips';
+import { Tips } from '../Tips';
 import { showMessage } from '../../adapters/showMessage';
 
 import styles from './styles.module.css';

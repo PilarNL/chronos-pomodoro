@@ -1,4 +1,4 @@
-body {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -26,7 +26,7 @@ body {
   background: linear-gradient(
     170deg,
     var(--gray-900) 0%,
-    var(--gray-700) 50%,
+    var(--gray-700) 65%,
     var(--gray-500) 100%
   );
   color: var(--text-default);

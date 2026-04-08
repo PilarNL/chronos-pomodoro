@@ -1,6 +1,6 @@
-import { Home } from './pages/home';
+import { MainRouter } from './routes/MainRouter';
 import { TaskContextProvider } from './contexts/TaskContext/TaskContextProvider';
-import { MessagesContainer } from './components/messagesContainer';
+import { MessagesContainer } from './components/MessagesContainer';
 import './styles/theme.css';
 import './styles/global.css';
 
@@ -8,7 +8,7 @@ export function App() {
   return (
     <TaskContextProvider>
       <MessagesContainer>
-        <Home />
+        <MainRouter />
       </MessagesContainer>
     </TaskContextProvider>
   );
