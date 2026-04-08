@@ -1,0 +1,26 @@
+.title,
+.paragraph {
+  text-align: center;
+}
+
+.title {
+  display: block;
+  margin-top: 5.6rem;
+}
+
+.form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2.4rem;
+  margin-bottom: 5.6rem;
+}
+
+.formRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1.2rem;
+}
