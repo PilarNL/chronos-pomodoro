@@ -2,8 +2,14 @@ import { Container } from '../../components/Container';
 import { GenericHtml } from '../../components/GenericHtml';
 import { RouterLink } from '../../components/RouterLink';
 import { MainTemplate } from '../../templates/MainTemplate';
+import pomodoroImage from '../../assets/images/ciclo-tecnica-pomodoro.webp';
+import { useEffect } from 'react';
 
 export function AboutPomodoro() {
+  useEffect(() => {
+    document.title = 'Técnica Pomodoro - Chronos Pomodoro';
+  }, []);
+
   return (
     <MainTemplate>
       <Container>
@@ -18,7 +24,7 @@ export function AboutPomodoro() {
             garantir descansos para evitar o cansaço mental.
           </p>
 
-          <img src='https://placehold.co/1920x1080' alt='' />
+          <img src={pomodoroImage} alt='Pomodoro' />
 
           <h2>Como funciona o Pomodoro tradicional?</h2>
           <ul>
@@ -32,7 +38,7 @@ export function AboutPomodoro() {
               <strong>3. Faça uma pausa curta de 5 minutos</strong>.
             </li>
             <li>
-              <strong>4. A cada 4 ciclos, faça uma pausa longa</strong>{' '}
+              <strong>4. A cada 8 ciclos, faça uma pausa longa</strong>{' '}
               (geralmente 15 a 30 minutos).
             </li>
           </ul>

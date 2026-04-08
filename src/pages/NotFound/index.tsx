@@ -1,9 +1,13 @@
+import { useEffect } from 'react';
 import { Container } from '../../components/Container';
 import { GenericHtml } from '../../components/GenericHtml';
 import { RouterLink } from '../../components/RouterLink';
 import { MainTemplate } from '../../templates/MainTemplate';
 
 export function NotFound() {
+  useEffect(() => {
+    document.title = '404 - Chronos Pomodoro';
+  }, []);
   return (
     <MainTemplate>
       <Container>

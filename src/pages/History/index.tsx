@@ -5,7 +5,7 @@ import { MainTemplate } from '../../templates/MainTemplate';
 import { useTaskContent } from '../../contexts/TaskContext/useTaskContext';
 import { formatDate } from '../../utils/formatDate';
 import { getTaskStatus } from '../../utils/getTaskStatus';
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { sortTasks } from '../../utils/sortTasks';
 import type { SortTasksOptions } from '../../utils/sortTasks';
 
@@ -35,7 +35,6 @@ export function History() {
     });
   }, [state.tasks, sortTaskOptions.direction, sortTaskOptions.field]);
 
-
   function handleSortTasks({ field }: Pick<SortTaskState, 'field'>) {
     const newDirection = sortTaskOptions.direction === 'desc' ? 'asc' : 'desc';
     setSortTaskOptions({
@@ -55,6 +54,10 @@ export function History() {
       },
     );
   }
+
+  useEffect(() => {
+    document.title = 'Histórico - Chronos Pomodoro';
+  }, []);
 
   return (
     <MainTemplate>
